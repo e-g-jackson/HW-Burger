@@ -1,0 +1,37 @@
+<h1 class = 'jumbotron'>BURGERS</h1>
+
+<br><br>
+
+<div>
+    <h2>Undevoured Burgers!</h2>
+    <ul>
+        {{#each Burgers}}
+            {{#unless devoured}}
+                {{>burgers/burger-block devoured=false}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+
+<br><br>
+
+<div>
+    <h2>Devoured Burgers!</h2>
+    <ul>
+        {{#each Burgers}}
+            {{#if devoured}}
+                {{> burgers/burger-block devoured=true}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
+
+<br><br>
+
+<div>
+    <label>Enter New Hamburger</label>
+    <input id = 'newBurger' type = 'text'>
+    <button id = 'addBurger' class = 'btn btn-lg btn-primary' type = 'submit'>
+        Add Hamburger
+    </button>
+</div>
