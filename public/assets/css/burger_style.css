@@ -1,0 +1,13 @@
+.top{
+    text-align: center;
+}
+#dev{
+    width: 46%;
+    margin: 2%;
+    float: right;
+}
+#undev{
+    width: 46%;
+    margin: 2%;
+    float: left;
+}
