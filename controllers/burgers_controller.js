@@ -16,17 +16,20 @@ router.get('/', function(req, res){
 });
 
 router.post('/api/burgers', function(req, res){
-    burger.create(['burgerName', 'devoured'], [req.body.name, false], function(result){
+    burger.create('"' + req.body.burgerName + '"', function(result){
         result.json({id: result.insertId});
+        console.log('burger_controller--router.post: ', req.body.name )
     });
 });
 
-router.put('api/burgers/:burgerName', function(req, res){
-    var id = "id = " + req.params.burgerName;
-    console.log("The id is: " + id);
-    burger.update({devoured: true}, id, function(result){
+router.put('/api/burgers/:id', function(req, res){
+    //not running
+    var id = req.params.id;
+    var condition = "id = " + req.params.id;
+    console.log("The condition is:" + condition);
+    burger.updateOne(id, true, function(result){
         if (result.changedRows === 0){
-            return res.status(404).end();
+            return res.status(404).send('Couldn\'nt find that one...').end();
         }
         res.status(200).end();
     });
