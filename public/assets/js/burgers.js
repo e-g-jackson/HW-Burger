@@ -25,7 +25,7 @@ $(document).on('click', '.devBtn', function(){
         console.log('Burger Devoured!')
     })
     console.log
-    // reloader();
+    reloader();
 })
 
 //Reload Page
