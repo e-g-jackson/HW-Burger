@@ -1,16 +1,17 @@
 var connection = require('./connection.js');
 
 var orm = {
-    selectAll: function(){
-        var qS = "SELECT * FROM burgers"
+    selectAll: function(cb){
+        var qS = "SELECT * FROM burger"
         connection.query(qS, function(err, res){
             if(err) throw err;
             console.log(res);
+            cb(res);
         });
     },
     insertOne: function(newBurger){
-        qS = "INSERT INTO burgers (burgerName, Devoured) ";
-        qs += "VALUE (??, false);";
+        qS = "INSERT INTO burger (burgerName, Devoured) ";
+        qs += "VALUE (" + newBurger + ", false);";
         console.log(qS);
         connection.query(qS, newBurger, function(err, res){
             if (err) throw err;
@@ -18,9 +19,9 @@ var orm = {
         });
     },
     updateOne: function(bgName){
-        qS = "UPDATE burgers";
-        qS += "SET devoured = true";
-        qS += "WHERE burgerName = ??;";
+        qS = "UPDATE burger ";
+        qS += "SET devoured = true ";
+        qS += "WHERE burgerName = " + bgName + ";";
         connection.query(qS, bgName, function(){
             if (err) throw err;
             console.log(res);

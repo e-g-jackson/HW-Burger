@@ -1,37 +1,36 @@
 <h1 class = 'jumbotron'>BURGERS</h1>
+<div>
+    <label><strong>Enter New Hamburger</strong></label>
+    <br>
+    <input id = 'newBurger' type = 'text'>
+    <button id = 'addBurger' class = 'btn btn-sm btn-primary' type = 'submit'>
+        Add Hamburger
+    </button>
+</div>
+<hr>
 
 <br><br>
 
 <div>
     <h2>Undevoured Burgers!</h2>
     <ul>
-        {{#each Burgers}}
+        {{#each burgers}}
             {{#unless devoured}}
-                {{>burgers/burger-block devoured=false}}
+                {{>burgers/burger-block-interactive devoured=false}}
             {{/unless}}
         {{/each}}
     </ul>
 </div>
 
-<br><br>
+<br><hr><br>
 
 <div>
     <h2>Devoured Burgers!</h2>
     <ul>
-        {{#each Burgers}}
+        {{#each burgers}}
             {{#if devoured}}
-                {{> burgers/burger-block devoured=true}}
+                {{>burgers/burger-block devoured=true}}
             {{/if}}
         {{/each}}
     </ul>
-</div>
-
-<br><br>
-
-<div>
-    <label>Enter New Hamburger</label>
-    <input id = 'newBurger' type = 'text'>
-    <button id = 'addBurger' class = 'btn btn-lg btn-primary' type = 'submit'>
-        Add Hamburger
-    </button>
 </div>
