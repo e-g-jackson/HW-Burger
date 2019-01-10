@@ -2,7 +2,7 @@ var connection = require('./connection.js');
 
 var orm = {
     selectAll: function(cb){
-        var qS = "SELECT * FROM burger"
+        var qS = "SELECT * FROM burger;"
         connection.query(qS, function(err, res){
             if(err) throw err;
             console.log(res);
